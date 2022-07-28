@@ -28,28 +28,26 @@ public class Box <T extends Fruit>{
     public T getFruit() {
         return fruit;
     }
-
+    public ArrayList<T> getFruitsInBox() {
+        return fruitsInBox;
+    }
     public int getCount(){
         return count;
     }
 
-    public void setWeight() {
-        this.weight = (float) fruitsInBox.size() * fruit.weight;
+    public void setWeight(T fruit) {
+        this.weight = (float) this.fruitsInBox.size() * fruit.getWeight();
     }
 
-    public void  addFruit(int n) {
-        for (int i= 0; i < n; i++) {
-            this.fruitsInBox.add(fruit);
-            this.count = this.fruitsInBox.size();
-            setWeight();
-        }
+    public void  addFruit(T fruit) {
+        this.fruitsInBox.add(fruit);
+        this.count = this.fruitsInBox.size();
+        setWeight(fruit);
     }
-    public void  deleteFruit(int n) {
-        for (int i= 0; i < n; i++) {
-            this.fruitsInBox.remove(fruit);
-            this.count = this.fruitsInBox.size();
-            setWeight();
-        }
+    public void  deleteFruit(T fruit) {
+        this.fruitsInBox.remove(fruit);
+        this.count = this.fruitsInBox.size();
+        setWeight(fruit);
     }
 
     public String getBoxType() {

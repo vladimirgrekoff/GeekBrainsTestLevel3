@@ -44,14 +44,22 @@ public class Main {
 
     private static void fillBoxesWithFruit(Fruit apple, Fruit orange, int[] apples, int[] oranges, Box<Fruit>[] boxes) {
         //заполнение ящиков фруктами
-        for (int i = 0; i < boxes.length; i++) {
+        for (int i = 0; i < boxes.length; i++){
             boxes[i] = new Box<>();
             if (i < apples.length) {
                 boxes[i].setFruit(apple);
-                boxes[i].addFruit(apples[i]);
+                for (int j = 0; j < apples[i]; j++) {
+                    apple = new Apple();
+                    boxes[i].addFruit(apple);
+                }
+
             } else {
                 boxes[i].setFruit(orange);
-                boxes[i].addFruit(oranges[i - apples.length]);
+                for (int j = 0; j < oranges[i- apples.length]; j++) {
+                    orange = new Orange();
+                    boxes[i].addFruit(orange);
+                }
+
             }
         }
     }
@@ -67,7 +75,7 @@ public class Main {
     }
 
     private static void makeBoxesOfFruitsWithEqualWeight(Fruit apple, Fruit orange, Box<Fruit>[] boxes, float requiredWeight) {
-        //рампределить фрукты до одинакового веса ящиков
+        //распределить фрукты до одинакового веса ящиков
         int j;
 
         for (int i = 0; i < boxes.length; i++) {
@@ -92,12 +100,16 @@ public class Main {
         int numFruit;
         if (boxes[j].getWeight() < requiredWeight) {
             numFruit = (int) ((requiredWeight - boxes[j].getWeight()) / boxes[i].getFruit().getWeight());
-            boxes[j].addFruit(numFruit);
-            boxes[i].deleteFruit(numFruit);
+            for (int k = 0; k < numFruit; k++) {
+                boxes[j].addFruit(boxes[i].getFruitsInBox().get(boxes[i].getCount()-1));
+                boxes[i].deleteFruit(boxes[i].getFruitsInBox().get(boxes[i].getCount()-1));
+            }
         } else if (boxes[j].getWeight() > requiredWeight) {
             numFruit = (int) ((boxes[j].getWeight() - requiredWeight) / boxes[j].getFruit().getWeight());
-            boxes[j].deleteFruit(numFruit);
-            boxes[i].addFruit(numFruit);
+            for (int k = 0; k < numFruit; k++) {
+                boxes[j].deleteFruit(boxes[j].getFruitsInBox().get(boxes[j].getCount()-1));
+                boxes[i].addFruit(boxes[j].getFruitsInBox().get(boxes[j].getCount()-1));
+            }
         }
     }
 
@@ -110,4 +122,3 @@ public class Main {
         }
     }
 }
-
