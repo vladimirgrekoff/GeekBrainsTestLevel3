@@ -1,0 +1,8 @@
+авг. 25, 2022 5:10:14 PM lesson6.task1.server.MyServer start
+INFO: СЕРВЕР ЗАПУЩЕН!
+авг. 25, 2022 5:10:14 PM lesson6.task1.server.MyServer start
+INFO: ---------------
+авг. 25, 2022 5:10:15 PM lesson6.task1.server.MyServer waitAndProcessNewClientConnection
+INFO: Ожидание клиента...
+авг. 25, 2022 5:10:30 PM lesson6.task1.server.MyServer waitAndProcessNewClientConnection
+INFO: Клиент подключился!

@@ -1,0 +1,12 @@
+авг. 25, 2022 5:10:30 PM lesson6.task1.server.MyServer waitAndProcessNewClientConnection
+INFO: Ожидание клиента...
+авг. 25, 2022 5:10:45 PM lesson6.task1.server.handlers.ClientHandler processAuthentication
+SEVERE: Неверная комбинация логина и пароля
+авг. 25, 2022 5:10:49 PM lesson6.task1.server.handlers.ClientHandler processAuthentication
+INFO: Пользователь Super Leo подключился к чату
+авг. 25, 2022 5:10:55 PM lesson6.task1.server.handlers.ClientHandler readMessage
+INFO: message | Super Leo: /cMsg/2222
+авг. 25, 2022 5:10:57 PM lesson6.task1.server.handlers.ClientHandler readMessage
+INFO: message | Super Leo: /end
+авг. 25, 2022 5:10:57 PM lesson6.task1.server.handlers.ClientHandler readMessage
+INFO: Пользователь отключился
